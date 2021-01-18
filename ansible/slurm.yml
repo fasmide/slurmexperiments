@@ -11,9 +11,12 @@
 - name: execute nodes
   hosts: exec
   remote_user: root
+  vars:
+    golang_gopath: /opt/go/1.14.4/
 
   roles:
     - { name: slurmd, tags: slurmd }
+    - { name: lecorguille.singularity, tags: singularity }
 
 - name: controller nodes
   hosts: controller
